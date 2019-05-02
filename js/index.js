@@ -9,7 +9,6 @@ function onDeviceReady() {
 
 function capturePhoto() {
 	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-//	navigator.camera.getPicture(getFileEntry, onFail, { quality: 50,
 	destinationType: destinationType.DATA_URL });
 }
 
@@ -21,18 +20,4 @@ function onPhotoDataSuccess(imageData) {
 
 function onFail(message) {
       alert('Failed because: ' + message);
-}
-
-function getFileEntry(imgUri) {
-    window.resolveLocalFileSystemURL(imgUri, function success(fileEntry) {
-
-        // Do something with the FileEntry object, like write to it, upload it, etc.
-         writeFile(fileEntry, imgUri);
-        console.log("got file: " + fileEntry.fullPath);
-         displayFileData(fileEntry.nativeURL, "Native URL");
-
-    }, function () {
-
-        createNewFileEntry(imgUri);
-    });
 }
