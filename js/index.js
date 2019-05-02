@@ -8,9 +8,9 @@ function onDeviceReady() {
 }
 
 function capturePhoto() {
-//	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
-	navigator.camera.getPicture(getFileEntry, onFail, { quality: 50,
-	destinationType: destinationType.FILE_URI });
+	navigator.camera.getPicture(onPhotoDataSuccess, onFail, { quality: 50,
+//	navigator.camera.getPicture(getFileEntry, onFail, { quality: 50,
+	destinationType: destinationType.DATA_URL });
 }
 
 function onPhotoDataSuccess(imageData) {
@@ -32,8 +32,7 @@ function getFileEntry(imgUri) {
          displayFileData(fileEntry.nativeURL, "Native URL");
 
     }, function () {
-      // If don't get the FileEntry (which may happen when testing
-      // on some emulators), copy to a new FileEntry.
+
         createNewFileEntry(imgUri);
     });
 }
