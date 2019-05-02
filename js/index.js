@@ -17,7 +17,7 @@ function onPhotoDataSuccess(imageData) {
 	var image = document.getElementById('image');
 	image.style.display = 'block';
 	image.src = "data:image/jpeg;base64," + imageData;
-	getFileEntry(imageData)
+	movePic(imageData)
 }
 
 function onFail(message) {
